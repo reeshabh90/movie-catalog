@@ -1,0 +1,13 @@
+version: '2.1'
+
+services:
+  movie-catalog:
+    image: movie-catalog
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      JAVA_OPTS: -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005,quiet=y
+    ports:
+      - 8083:8083
+      - 5005:5005
